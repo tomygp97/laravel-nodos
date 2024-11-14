@@ -1,21 +1,34 @@
 <?php
 
+
 namespace App\Providers;
+
 
 use Illuminate\Support\ServiceProvider;
 
-class BindingInterfaceProvider extends ServiceProvider
+class BindingInterfacesProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
-    {
-        //
-    }
+    public array $bindings = [
+        // AfiliadoService::class => AfiliadoRepository::class,
+        // AfiliadoServiceInterface::class => AfiliadoService::class,
+    ];
+
 
     /**
-     * Bootstrap any application services.
+     * Register services.
+     */
+
+
+    public function register(): void
+    {
+        foreach ($this->bindings as $interface => $concrete) {
+            $this->app->bind($interface, $concrete);
+        }
+    }
+
+
+    /**
+     * Bootstrap services.
      */
     public function boot(): void
     {
