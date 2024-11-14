@@ -54,3 +54,8 @@ class BindingInterfacesProvider extends ServiceProvider
 *//
 
 10. Copiar y pegar estructura de BindingInterfaceProvider.php
+
+
+11. Controller: Llama al service y manejo de solicitud HTTP
+    Service: Logica de negocio
+    Repository: Conexion a la base de datos 
